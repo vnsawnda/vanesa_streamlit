@@ -15,7 +15,7 @@
 import streamlit as st
 from streamlit.logger import get_logger
 
-LOGGER = get_logger(__name__)
+LOGGER = get_logger(_name_)
 
 
 def run():
@@ -32,7 +32,7 @@ def run():
         """
         Streamlit is an open-source app framework built specifically for
         Machine Learning and Data Science projects.
-        **👈 Select a demo from the sidebar** to see some examples
+        *👈 Select a demo from the sidebar* to see some examples
         of what Streamlit can do!
         ### Want to learn more?
         - Check out [streamlit.io](https://streamlit.io)
@@ -47,7 +47,7 @@ def run():
     )
 
 
-if __name__ == "__main__":
+if _name_ == "_main_":
     run()
 
 import streamlit as st
@@ -61,4 +61,8 @@ st.title("Data Visualization")
 st.write(data)
 
 # Create a chart from the data
-st.bar_chart(data["column_name"])
+selected_column = "total_bill"  # Replace with your desired column name
+if selected_column in data.columns:
+    st.bar_chart(data[selected_column])
+else:
+    st.write("Error: Column '{}' not found in the data.".format(selected_column))
