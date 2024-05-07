@@ -61,4 +61,12 @@ st.title("Data Visualization")
 st.write(data)
 
 # Create a chart from the data
-st.bar_chart(data["column_name"])
+selected_column = "total_bill"  # Replace with your desired column name
+if selected_column in data.columns:
+    # Line chart
+    st.subheader("Line Chart of " + selected_column)
+    st.line_chart(data[selected_column])
+else:
+    st.write("Error: Column '{}' not found in the data.".format(selected_column))
+
+
