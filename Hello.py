@@ -29,7 +29,7 @@ def run():
     st.sidebar.success("Select a demo above.")
 
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     run()
 
 import streamlit as st
